@@ -335,6 +335,10 @@ and have fun!</text>
 		<path>/LCR/CC/fastest-lap</path>
 		<path>/LCR/CC/sector[0]/fastest-time</path>
 		<path>/LCR/CC/sector[1]/fastest-time</path>
+		<path>/LCR/CT/fastest-lap</path>
+		<path>/LCR/CT/sector[0]/fastest-time</path>
+		<path>/LCR/CT/sector[1]/fastest-time</path>
+		<path>/LCR/CT/sector[2]/fastest-time</path>
 		<path>/controls/flight/select-throttle-input</path>
 		<path>/controls/LCR/old-mens-mode</path>
 	</aircraft-data> 
@@ -794,7 +798,69 @@ and have fun!</text>
 		<lap n="16">
 			<actual-time type="float">0.0</actual-time>
 		</lap>
-	</CC>        
+	</CC>
+
+	<CT>
+		<race-laps type="int">8</race-laps>
+		<fastest-lap type="float">0.0</fastest-lap>
+		<sector n="0">
+			<start-time type="float">0.0</start-time>
+			<last-time type="float">0.0</last-time>	
+			<fastest-time type="float">0.0</fastest-time>
+		</sector>
+		<sector n="1">
+			<start-time type="float">0.0</start-time>
+			<last-time type="float">0.0</last-time>		
+			<fastest-time type="float">0.0</fastest-time>
+		</sector>
+		<sector n="2">
+			<start-time type="float">0.0</start-time>
+			<last-time type="float">0.0</last-time>		
+			<fastest-time type="float">0.0</fastest-time>
+		</sector>
+		<lap n="0">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="1">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="2">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="3">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="4">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="5">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="6">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="7">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="8">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="9">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="10">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="11">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="12">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+		<lap n="13">
+			<actual-time type="float">0.0</actual-time>
+		</lap>
+	</CT>        
 </LCR>	
  
  <!--CONTROLS-->
