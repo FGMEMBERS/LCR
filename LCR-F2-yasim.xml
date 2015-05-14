@@ -7,7 +7,7 @@
 
 	The LCR-F2 is a LCR racing sidecar with a Suzuki GSX-R600 engine
 -->
-<airplane mass="900">
+<airplane mass="900" version="YASIM_VERSION_CURRENT">
 
   <approach speed="16" aoa="2" fuel="0.8">
     <control-setting axis="/controls/flight/elevator" value="0.15"/>
