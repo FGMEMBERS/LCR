@@ -11,6 +11,7 @@
 
 	<animation>
 		<type>noshadow</type>
+		<object-name>CTRL.eng</object-name>
 		<object-name>digit-1</object-name>
 		<object-name>digit-10</object-name>
 		<object-name>digit-100</object-name>
@@ -21,6 +22,7 @@
 
 	<effect>
 		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>CTRL.eng</object-name>
 		<object-name>digit-1</object-name>
 		<object-name>digit-10</object-name>
 		<object-name>digit-100</object-name>
@@ -39,6 +41,17 @@
 	  <pitch-deg>75</pitch-deg>
 	</offsets>
 	</model>
+	
+	<animation>
+		 <type>material</type>
+		 <object-name>CTRL.eng</object-name>
+		 <emission>
+		  <red>1</red>
+		  <green>1</green>
+		  <blue>1</blue>
+		  <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+	   	</emission>
+	</animation>
 
 	<animation>
 		 <type>material</type>
@@ -103,6 +116,17 @@
    	  <blue>0.016</blue>
    	  <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
            </emission>
+    </animation>
+
+    <animation>
+      <type>select</type>
+		 <object-name>CTRL.eng</object-name>
+      <condition>
+        <greater-than>
+          <property>engines/engine/rpm</property>
+		  <value>16490</value>
+        </greater-than>
+      </condition>
     </animation>
 	
     <animation>
