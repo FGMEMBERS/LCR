@@ -25,7 +25,12 @@ var forkcontrol = func{
 			f.setValue(r);
 		}
 	}else{
-		f.setValue(r);
+		var gs = getprop("/velocities/groundspeed-kt") or 0;
+		if(gs > 50){
+			f.setValue(r*0.5);
+		}else{
+			f.setValue(r);
+		}
 	}
 	settimer(forkcontrol, 0.05);
 };
