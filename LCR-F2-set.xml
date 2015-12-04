@@ -341,6 +341,7 @@ and have fun!</text>
 		<path>/LCR/CT/sector[2]/fastest-time</path>
 		<path>/controls/flight/select-throttle-input</path>
 		<path>/controls/LCR/old-mens-mode</path>
+		<path>/controls/fuel/remember-level</path>
 	</aircraft-data> 
 
  </sim>
@@ -936,6 +937,9 @@ and have fun!</text>
 		  <throttle-on-elev-axis type="float">0.0</throttle-on-elev-axis>
 		  <flaps>0.0</flaps> <!-- helper for the fastcircuit -->
 		</flight>
+		<fuel>
+			<remember-level type="float">0.0</remember-level>
+		</fuel>
 	</controls>
  
 	<instrumentation>
