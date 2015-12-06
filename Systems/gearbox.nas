@@ -131,22 +131,22 @@ var loop = func {
 			vmax = 0;
 			fastcircuit.setValue(0);
 		} else if (gear.getValue() == 1) {
-			vmax = 50;
+			vmax = 70;
 			fastcircuit.setValue(0.1);
 		} else if (gear.getValue() == 2) {
-			vmax =  70;
+			vmax =  100;
 			fastcircuit.setValue(0.2);
 		} else if (gear.getValue() == 3) {
-			vmax = 100;
+			vmax = 130;
 			fastcircuit.setValue(0.3);
 		} else if (gear.getValue() == 4) {
-			vmax = 130;
+			vmax = 160;
 			fastcircuit.setValue(0.4);
 		} else if (gear.getValue() == 5) {
-			vmax = 160;
+			vmax = 180;
 			fastcircuit.setValue(0.5);
 		} else if (gear.getValue() == 6) {
-			vmax = 180;
+			vmax = 198;
 			fastcircuit.setValue(0.6);
 		}
 
