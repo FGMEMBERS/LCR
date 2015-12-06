@@ -28,19 +28,22 @@ var f = props.globals.getNode("/controls/flight/fork");
 var forkcontrol = func{
     var r = getprop("/controls/flight/rudder") or 0;
 	var ms = getprop("/devices/status/mice/mouse/mode") or 0;
+	var bl = getprop("/controls/gear/brake-left") or 0;
+	var bs = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") or 0;
 	if (ms == 1) {
 		if(getprop("/devices/status/mice/mouse/button")==1){
 			f.setValue(r);
 		}
 	}else{
-		var gs = getprop("/velocities/groundspeed-kt") or 0;
-		if(gs > 50){
-			f.setValue(r*0.5);
-		}else{
-			f.setValue(r);
-		}
+		f.setValue(r);
 	}
-	settimer(forkcontrol, 0.05);
+	if(bs > 38){
+		setprop("/controls/gear/brake-front", bl);
+	}else{
+		setprop("/controls/gear/brake-front", 0);
+	}
+
+	settimer(forkcontrol, 0);
 };
 
 forkcontrol();
@@ -74,7 +77,7 @@ setlistener("/surface-positions/left-aileron-pos-norm", func (position){
 	}else{
 	    var driverpos = getprop("/controls/LCR/driver-up") or 0;
 		var lookup = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") or 0;
-		setprop("/sim/current-view/y-offset-m", abs(position*0.05) + (driverpos/6) + 0.85 - lookup/1700);  	# up/down
+		setprop("/sim/current-view/y-offset-m", abs(position*0.05) + (driverpos/6) + 0.85 - lookup/3100);  	# up/down
 		setprop("/sim/current-view/x-offset-m", position*0.1);  							# left/right	
 	}
 

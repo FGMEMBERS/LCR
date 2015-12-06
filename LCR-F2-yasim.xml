@@ -61,9 +61,16 @@
 
   <thruster 
     x="0.6" y="0" z="-0.21"
-    thrust="1400"
+    thrust="1800"
     vx="1" vy="0" vz="0">
     <control-input axis="/engines/engine/propulsion" control="THROTTLE"/>
+  </thruster>
+  
+  <thruster 
+    x="2" y="0" z="0"
+    thrust="1000"
+    vx="1" vy="0" vz="0">
+    <control-input axis="/controls/gear/brake-front" control="THROTTLE" src0="0" src1="1" dst0="0" dst1="-1"/>
   </thruster>
 
   <tank x="0.38" y="0" z="0.53" capacity="31"/>
@@ -98,7 +105,7 @@
 	
     <!-- support wheel left -->
 
-     <gear x="0.04" y="0.6" z="-0.21"
+     <gear x="0.04" y="0.8" z="-0.21"
 			compression="0.2"
 			sfric="0.8"
 			dfric="3.0"
@@ -112,7 +119,7 @@
 
     <!-- support wheel right -->
 
-     <gear x="0.04" y="-0.6" z="-0.21"
+     <gear x="0.04" y="-0.4" z="-0.21"
 			compression="0.2"
 			sfric="0.8"
 			dfric="3.0"
