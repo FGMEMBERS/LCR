@@ -27,8 +27,9 @@ var weight = props.globals.getNode("/sim/weight/weight-lb"); # max. 230 lbs
 var inertia = 0;
 var vmax = 0;
 var looptime = 0.1;
-var minrpm = 2200;
-var maxrpm = 17000;
+var minrpm = 3100;
+var maxrpm = 18000;
+var newrpm = 0;
 var clutchrpm = 0;
 var maxhealth = 120; # for the engine killing, higher is longer live while overspeed rpm
 var speedlimiter = props.globals.getNode("/instrumentation/LCR/speed-indicator/speed-limiter");
@@ -71,6 +72,8 @@ var loop = func {
 	
 	#gspeed = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") or 0;
 	gspeed = getprop("/velocities/groundspeed-kt") or 0;
+	var bwspeed = getprop("/gear/gear[1]/rollspeed-ms") or 0;
+	bwspeed = bwspeed*2.23694; # meter per secondes to miles per hour
 	
 	# drive with gears
 	# clutch control
@@ -131,22 +134,22 @@ var loop = func {
 			vmax = 0;
 			fastcircuit.setValue(0);
 		} else if (gear.getValue() == 1) {
-			vmax = 70;
+			vmax = 75;
 			fastcircuit.setValue(0.1);
 		} else if (gear.getValue() == 2) {
-			vmax =  100;
+			vmax =  110;
 			fastcircuit.setValue(0.2);
 		} else if (gear.getValue() == 3) {
-			vmax = 130;
+			vmax = 140;
 			fastcircuit.setValue(0.3);
 		} else if (gear.getValue() == 4) {
-			vmax = 160;
+			vmax = 175;
 			fastcircuit.setValue(0.4);
 		} else if (gear.getValue() == 5) {
-			vmax = 180;
+			vmax = 190;
 			fastcircuit.setValue(0.5);
 		} else if (gear.getValue() == 6) {
-			vmax = 198;
+			vmax = 210;
 			fastcircuit.setValue(0.6);
 		}
 
@@ -160,19 +163,27 @@ var loop = func {
 			}else{
 				propulsion.setValue(throttle.getValue()/3);
 			}
-			rpm.setValue((maxrpm+1000)/vmax*gspeed);
-
+			
+			if(bwspeed < 3 and gspeed < 30){
+				newrpm = throttle.getValue()*(maxrpm);
+				rpm.setValue(newrpm);
+			}else{
+				newrpm = (maxrpm+minrpm)/vmax*gspeed;
+				newrpm = (newrpm < minrpm + 1000) ? minrpm + 1000 : newrpm;
+				interpolate("/engines/engine/rpm",newrpm,0.125);
+			}
+			
+			#help_win.write(sprintf("%.2fmph", gspeed));
+			
 			# killing engine with the wrong gear
-			if (gear.getValue() > 4 and gspeed < 10) {
-						running.setValue(0);
-						propulsion.setValue(0);
-			}else if (gear.getValue() > 2 and gear.getValue() <= 4 and gspeed < 5) {
+			if (gear.getValue() > 2 and gspeed < 4) {
 						running.setValue(0);
 						propulsion.setValue(0);
 			}
 
 		} else {
-			rpm.setValue(throttle.getValue()*(maxrpm+2000));
+			newrpm = (newrpm < minrpm) ? minrpm : throttle.getValue()*(maxrpm+minrpm);
+			rpm.setValue(newrpm);
 			propulsion.setValue(0);
 		}
 		
