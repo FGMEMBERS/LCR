@@ -61,14 +61,14 @@
 
   <thruster 
     x="0.6" y="0" z="-0.21"
-    thrust="1700"
+    thrust="1900"
     vx="1" vy="0" vz="0">
     <control-input axis="/engines/engine/propulsion" control="THROTTLE"/>
   </thruster>
   
   <thruster 
     x="2" y="0" z="0"
-    thrust="1000"
+    thrust="1600"
     vx="1" vy="0" vz="0">
     <control-input axis="/controls/gear/brake-front" control="THROTTLE" src0="0" src1="1" dst0="0" dst1="-1"/>
   </thruster>
@@ -85,8 +85,8 @@
 			damp="6.2">
           <control-input axis="/controls/gear/brake-parking" control="BRAKE"/> 
           <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
-          <control-input axis="/surface-positions/left-aileron-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.8" dst1="0.8"/>
-      	  <control-input axis="/surface-positions/rudder-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.8" dst1="0.8"/>
+          <control-input axis="/surface-positions/left-aileron-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.9" dst1="0.9"/>
+      	  <control-input axis="/surface-positions/rudder-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.9" dst1="0.9"/>
     </gear>
 
   <!-- rearwheel -->
@@ -100,7 +100,7 @@
           <control-input axis="/engines/engine[0]/brake-engine" control="BRAKE"/>  
           <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
           <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
-          <control-input axis="/surface-positions/left-aileron-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="0.8" dst1="-0.8"/>
+          <control-input axis="/surface-positions/left-aileron-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="0.9" dst1="-0.9"/>
     </gear>
 	
     <!-- support wheel left -->
@@ -111,24 +111,20 @@
 			dfric="3.0"
 			spring="4.0"
 			damp="6.2">
-          <control-input axis="/engines/engine[0]/brake-engine" control="BRAKE"/> 
-          <control-input axis="/controls/gear/brake-right" control="BRAKE" src0="-1.0" src1="1.0" dst0="-0.5" dst1="0.5"/> 
-          <control-input axis="/surface-positions/left-aileron-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.8" dst1="0.8"/>
-       	<control-input axis="/surface-positions/rudder-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.8" dst1="0.8"/> 
+          <control-input axis="/surface-positions/left-aileron-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.9" dst1="0.9"/>
+       	<control-input axis="/surface-positions/rudder-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.9" dst1="0.9"/> 
      </gear>
 
     <!-- support wheel right -->
 
-     <gear x="0.04" y="-0.4" z="-0.21"
+     <gear x="0.04" y="-0.8" z="-0.21"
 			compression="0.2"
 			sfric="0.8"
 			dfric="3.0"
 			spring="4.0"
 			damp="6.2">
-          <control-input axis="/engines/engine[0]/brake-engine" control="BRAKE"/> 
-          <control-input axis="/controls/gear/brake-right" control="BRAKE" src0="-1.0" src1="1.0" dst0="-0.5" dst1="0.5"/> 
-          <control-input axis="/surface-positions/left-aileron-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.8" dst1="0.8"/>
-       	<control-input axis="/surface-positions/rudder-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.8" dst1="0.8"/>
+          <control-input axis="/surface-positions/left-aileron-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.9" dst1="0.9"/>
+       	<control-input axis="/surface-positions/rudder-pos-norm" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.9" dst1="0.9"/>
      </gear>
   
        <!-- rider's body mass -->
